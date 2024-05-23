@@ -1,1 +1,3 @@
-# node-backend-natours-website
+# Natours Application
+
+Built using: Node.js, Express, MongoDB, Mongoose🔋
