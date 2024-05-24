@@ -19,6 +19,8 @@ const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
+app.set('trust proxy', 'loopback');
+
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
@@ -49,7 +51,7 @@ app.use(
         ],
       },
     },
-    xssFilter: false, // Disabling x-forwarded-for middleware
+    // xssFilter: false, // Disabling x-forwarded-for middleware
   }),
 );
 
