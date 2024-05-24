@@ -5,9 +5,9 @@ const Tour = require('../../models/tourModel');
 const Review = require('../../models/reviewModel');
 const User = require('../../models/userModel');
 
-dotenv.config({ path: './config.env' });
+dotenv.config({ path: './prod.env' });
 
-mongoose.connect(process.env.DATABASE_LOCAL).then(() => {
+mongoose.connect(process.env.DATABASE).then(() => {
   console.log('DB connected!');
 });
 
