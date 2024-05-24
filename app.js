@@ -49,6 +49,7 @@ app.use(
         ],
       },
     },
+    xssFilter: false, // Disabling x-forwarded-for middleware
   }),
 );
 
