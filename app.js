@@ -8,6 +8,7 @@ const xss = require('xss-clean');
 const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
+const cors = require('cors');
 
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
@@ -20,15 +21,20 @@ const viewRouter = require('./routes/viewRoutes');
 const app = express();
 
 app.set('trust proxy', 3);
-app.get('/ip', (request, response) => response.send(request.ip));
-app.get('/x-forwarded-for', (request, response) =>
-  response.send(request.headers['x-forwarded-for']),
-);
+// app.get('/ip', (request, response) => response.send(request.ip));
+// app.get('/x-forwarded-for', (request, response) =>
+//   response.send(request.headers['x-forwarded-for']),
+// );
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 // 1. Global Middlewares
+// Implement CORS
+app.use(cors());
+
+app.options('*', cors());
+
 // Serving static files
 app.use(express.static(path.join(__dirname, 'public')));
 
