@@ -5,7 +5,7 @@ const AppError = require('../utils/appError');
 const catchAsync = require('../utils/catchAsync');
 
 exports.getOverview = catchAsync(async (req, res, next) => {
-  console.log(process.env.NODE_ENV);
+  // console.log(process.env.NODE_ENV);
   // 1.) Get all tour data from collection
   const tours = await Tour.find();
   // 2.) Build template

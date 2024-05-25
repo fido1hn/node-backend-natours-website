@@ -21,10 +21,6 @@ const viewRouter = require('./routes/viewRoutes');
 const app = express();
 
 app.set('trust proxy', 3);
-// app.get('/ip', (request, response) => response.send(request.ip));
-// app.get('/x-forwarded-for', (request, response) =>
-//   response.send(request.headers['x-forwarded-for']),
-// );
 
 app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
